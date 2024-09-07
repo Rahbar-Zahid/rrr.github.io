@@ -105,7 +105,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: ./build/web
+          artifact_name: flutter-web-build
 
       - name: Download Jekyll Site Artifact
         uses: actions/download-artifact@v3
@@ -121,7 +121,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: ./_site
+          artifact_name: jekyll-site
 
       - name: Check for errors
         run: |
