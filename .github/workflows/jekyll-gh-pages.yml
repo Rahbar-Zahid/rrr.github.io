@@ -111,12 +111,13 @@ jobs:
 
       - name: Check for errors
         run: |
-          if [ -f ./build/web/index.html ]; then
+          if [ -f ./web/index.html ]; then
             echo "Flutter deployment successful."
           else
             echo "Flutter deployment failed."
             exit 1
           fi
+          
 
           if [ -f ./_site/index.html ]; then
             echo "Jekyll deployment successful."
