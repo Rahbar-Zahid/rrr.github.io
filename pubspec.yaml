@@ -1,0 +1,222 @@
+name: flutter_application_1
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+  shimmer: ^2.0.0
+  #carousel_slider: ^4.0.0
+  visibility_detector: ^0.3.3
+  shared_preferences: ^2.0.13
+  image_picker: ^0.8.7+3
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.6
+  flutter_map: ^4.0.0
+  latlong2: ^0.8.1
+  url_launcher: ^6.0.9
+  responsive_builder: ^0.5.1
+#  flutter_bloc: ^8.0.0
+#  flutter_screenutil: ^5.6.0
+  responsive_framework: ^0.1.8
+  file_picker: ^5.2.2
+  #integration with firebase
+  firebase_core: any
+  cloud_firestore: ^5.1.0
+  firebase_storage: ^12.1.3
+  http: any
+  firebase_auth: ^5.1.4
+  get: ^4.6.6
+  google_sign_in: ^6.2.1
+  intl: any
+  google_generative_ai: ^0.0.1-dev
+  video_player: ^2.9.1
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^3.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/data.txt
+  #Logo
+    - assets/images/LEOS-Original-Logo-1.png
+    - assets/ak.jpg
+    - assets/0.mp4
+    - assets/Tuition.mp4
+  #Certificate
+    - assets/images/certificate.png
+    - assets/images/LEOS-Original-Logo-2.png
+  #Homepage
+    - assets/images/homepage/photo-1.jpg
+    - assets/images/homepage/photg.jpg
+    - assets/images/homepage/photo-3a.jpg
+
+  #About Us
+    - assets/images/about/deliver.png
+    - assets/images/about/leos1.png
+    - assets/images/about/leos3.png
+  #Contact us
+    - assets/images/contactsection/contact_banner.png
+    - assets/images/contactsection/backg.png
+
+    #Customer Support
+    - assets/images/customer_support/webinars/webinar.png
+    - assets/images/customer_support/webinars/elec.jpg
+
+  #News and Events
+    - assets/images/news_events_media/news_events.png
+    #workshop_1
+    - assets/images/news_events_media/workshop_1/wa-1.jpg
+    - assets/images/news_events_media/workshop_1/wa-2.jpg
+    - assets/images/news_events_media/workshop_1/wa-3.jpg
+    - assets/images/news_events_media/workshop_1/wa-4.jpg
+    - assets/images/news_events_media/workshop_1/wa-5.jpg
+    - assets/images/news_events_media/workshop_1/wa-6.jpg
+    - assets/images/news_events_media/workshop_1/wa-7.jpg
+    - assets/images/news_events_media/workshop_1/wa-8.jpg
+    - assets/images/news_events_media/workshop_1/wa-9.jpg
+
+    #indep_day
+    - assets/images/news_events_media/independence_Day/indepday.jpg
+
+    #interns
+    - assets/images/news_events_media/interns/abd-1.jpg
+
+  #internsip page
+    - assets/videos/internship/image.png
+    - assets/images/interns/wd_ceo.png
+    - assets/images/interns/ceo1.jpg
+    - assets/images/interns/ceo2.jpg
+    - assets/images/interns/ceo3.jpg
+    - assets/images/interns/ceo4.jpg
+
+  #All other
+    - assets/Header-home.png
+    - assets/surveillance_banner.png
+    - assets/tank_apc_banner.png
+    - assets/DSC00013.jpg
+    - assets/weapon_sights_banner.png
+    - assets/lrf_banner.png
+    - assets/surveillance-product.JPG
+    - assets/ABLDR_2.JPG
+    - assets/DSC00177.JPG
+    - assets/TIB786_3.jpg
+    - assets/TIB786_1.jpg
+    - assets/FAOD.jpg
+    - assets/FAOD_2.JPG
+    - assets/FAOD_3.JPG
+    - assets/FAOD_4.JPG
+    - assets/ALHARIS_75.JPG
+    - assets/ALHARIS_75_2.JPG
+    - assets/ALHARIS_75_3.JPG
+    - assets/ABTIQ_640.JPG
+    - assets/ABTIQ_640_2.JPG
+    - assets/ABSAR_D.JPG
+    - assets/ABSAR_C.JPG
+    - assets/TISA_506B.jpg
+    - assets/AR_3.JPG
+    - assets/ABTIQ_640IND.JPG
+    - assets/ABTIQ_640_2_IND.JPG
+    - assets/TI786_3IND.JPG
+    - assets/TIB786_1IND.JPG
+    - assets/FAODIND.JPG
+    - assets/FAODIND_2.JPG
+    - assets/ALHARIS_75IND.JPG
+    - assets/ALHARIS_75IND_2.JPG
+    - assets/ABSAR_DIND.JPG
+    - assets/ABSAR_CIND.JPG
+    - assets/TISA_506BIND.JPG
+    - assets/ABLDR_2IND.JPG
+    - assets/AR_3IND.JPG
+    - assets/ABLDR_2CIRCLE.png
+    - assets/optical_component_circle.png
+    - assets/dielectric_mirrors-modified.png
+    - assets/Wire-Harness-modified.png
+    - assets/mechanical-modified.png
+    - assets/crystal-growth-modified.png
+    - assets/Surface-mount-modified.png
+    - assets/Environmental-testing-modified.png
+    - assets/services_banner.png
+    - assets/mechanical_home.png
+    - assets/Products_banner.png
+    - assets/slideshow_surv_home.png
+    - assets/slideshow_weap_home.png
+    - assets/slideshow_tank_home.png
+    - assets/slideshow_lrf_home.png
+    - assets/service.jpg
+    - assets/vision_home.jpg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat.ttf
+    - family: Playfair
+      fonts:
+        - asset: fonts/Playfair/PlayfairBold.ttf
+        - asset: fonts/Playfair/PlayfairRegular.ttf
+        - asset: fonts/Playfair/PlayfairSemiBold.ttf
+          weight: 700
+    - family: Lato
+      fonts:
+        - asset: fonts/Lato/Lato-Black.ttf
+        - asset: fonts/Lato/Lato-Light.ttf
+        #- asset: fonts/Lato/Lato-ThinItalic.ttf
+
+
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
