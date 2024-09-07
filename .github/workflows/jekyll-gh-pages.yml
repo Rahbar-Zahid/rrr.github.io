@@ -15,14 +15,15 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  # Build Flutter Web App
   build_flutter:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
-          submodules: true
-          fetch-depth: 0
+          submodules: true  # Ensure submodules are included
+          fetch-depth: 0    # Fetch full history to detect changes in submodules
 
       - name: Check for submodule changes
         id: submodule_check
@@ -57,6 +58,7 @@ jobs:
           name: flutter-web-build
           path: ./build/web
 
+  # Build Jekyll Site
   build_jekyll:
     runs-on: ubuntu-latest
     steps:
@@ -78,7 +80,11 @@ jobs:
           name: jekyll-site
           path: ./_site
 
+  # Deploy Job
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: [build_flutter, build_jekyll]
     steps:
@@ -98,8 +104,8 @@ jobs:
         id: flutter_deploy
         uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/web
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./build/web
 
       - name: Download Jekyll Site Artifact
         uses: actions/download-artifact@v3
@@ -114,8 +120,8 @@ jobs:
         id: jekyll_deploy
         uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./_site
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ./_site
 
       - name: Check for errors
         run: |
