@@ -55,7 +55,8 @@ jobs:
         if: env.skip_flutter_build == 'false'
         uses: actions/upload-artifact@v3
         with:
-          name: flutter-web-build
+          # name: flutter-web-build
+          name: github-pages
           path: ./build/web
 
   # Build Jekyll Site
@@ -77,7 +78,8 @@ jobs:
       - name: Upload Jekyll artifact
         uses: actions/upload-artifact@v3
         with:
-          name: jekyll-site
+          # name: jekyll-site
+          name: github-pages
           path: ./_site
 
   # Deploy Job
@@ -105,8 +107,8 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-#          artifact_name: flutter-web-build
-          name: flutter-web-build
+          artifact_name: flutter-web-build
+          # name: flutter-web-build
 
       - name: Download Jekyll Site Artifact
         uses: actions/download-artifact@v3
@@ -122,8 +124,8 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-#          artifact_name: jekyll-site
-          name: jekyll-site
+          artifact_name: jekyll-site
+          # name: jekyll-site
 
       - name: Check for errors
         run: |
