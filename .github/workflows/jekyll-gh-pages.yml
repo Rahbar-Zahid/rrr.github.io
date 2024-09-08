@@ -55,7 +55,7 @@ jobs:
         if: env.skip_flutter_build == 'false'
         uses: actions/upload-artifact@v4
         with:
-          artifact-name: flutter-web-build
+          name: flutter-web-build
           # name: github-pages
           path: ./build/web
 
@@ -78,7 +78,7 @@ jobs:
       - name: Upload Jekyll artifact
         uses: actions/upload-artifact@v4
         with:
-          artifact-name: jekyll-site
+          name: jekyll-site
           # name: github-pages
           path: ./_site
 
@@ -90,11 +90,16 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build_flutter, build_jekyll]
     steps:
+      - name: List all artifacts before deployment
+        run: |
+          echo "Available artifacts:"
+          ls -R ${{ github.workspace }}
+          
       - name: Download Flutter Web Build Artifact
         if: env.skip_flutter_build == 'false'
         uses: actions/download-artifact@v4
         with:
-          artifact-name: flutter-web-build
+          name: flutter-web-build
           # name: github-pages
           path: ./build/web
 
@@ -108,14 +113,14 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact_name: flutter-web-build
+          artifact-name: flutter-web-build
           # name: github-pages
           # name: flutter-web-build
 
       - name: Download Jekyll Site Artifact
         uses: actions/download-artifact@v4
         with:
-          artifact-name: jekyll-site
+          name: jekyll-site
           # name: github-pages
           path: ./_site
 
