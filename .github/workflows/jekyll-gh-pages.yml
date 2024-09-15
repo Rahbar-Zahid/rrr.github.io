@@ -143,16 +143,6 @@ jobs:
         # if: env.skip_flutter_build == 'false'
         run: ls -R ./build/web
 
-      - name: Deploy Flutter Web App
-        # if: env.skip_flutter_build == 'false'
-        id: flutter_deploy
-        uses: actions/deploy-pages@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # artifact-name: flutter-web-build
-          # name: github-pages
-          # name: flutter-web-build
-
       - name: Download Jekyll Site Artifact
         # if: env.submodule_changed == 'true' #SelfAdded
         uses: actions/download-artifact@v4
@@ -163,6 +153,16 @@ jobs:
 
       - name: List files in _site
         run: ls -R ./_site
+
+      - name: Deploy Flutter Web App
+        # if: env.skip_flutter_build == 'false'
+        id: flutter_deploy
+        uses: actions/deploy-pages@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          # artifact-name: flutter-web-build
+          # name: github-pages
+          # name: flutter-web-build
 
       - name: Deploy Jekyll Site
         # if: env.submodule_changed == 'true' #SelfAdded
