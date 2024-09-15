@@ -72,41 +72,41 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          submodules: true  #Self Added
+        #with:
+         # submodules: true  #Self Added
 
-      #Self Added
-      - name: Check for submodule changes
-        id: submodule_check_jekyll
-        run: |
-          git submodule update --remote --init --recursive
-          if git diff --quiet --exit-code; then
-            echo "No changes in submodule."
-            echo "submodule_changed=false" >> $GITHUB_ENV
-          else
-            echo "Submodule has changed."
-            echo "submodule_changed=true" >> $GITHUB_ENV
-          fi
+      # #Self Added
+      # - name: Check for submodule changes
+      #   id: submodule_check_jekyll
+      #   run: |
+      #     git submodule update --remote --init --recursive
+      #     if git diff --quiet --exit-code; then
+      #       echo "No changes in submodule."
+      #       echo "submodule_changed=false" >> $GITHUB_ENV
+      #     else
+      #       echo "Submodule has changed."
+      #       echo "submodule_changed=true" >> $GITHUB_ENV
+      #     fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Build with Jekyll
-        if: env.submodule_changed == 'true' #Self-Added
+        # if: env.submodule_changed == 'true' #Self-Added
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
 
       - name: Check for symlinks and size in Jekyll site
-        if: env.submodule_changed == 'true' #Self-Added
+        # if: env.submodule_changed == 'true' #Self-Added
         run: |
             find ./_site -type l
             du -sh ./_site
 
       
       - name: Upload Jekyll artifact
-        if: env.submodule_changed == 'true' #Self-Added
+        # if: env.submodule_changed == 'true' #Self-Added
         uses: actions/upload-artifact@v4
         with:
           name: jekyll-site
@@ -153,7 +153,7 @@ jobs:
           # name: flutter-web-build
 
       - name: Download Jekyll Site Artifact
-        if: env.submodule_changed == 'true' #SelfAdded
+        # if: env.submodule_changed == 'true' #SelfAdded
         uses: actions/download-artifact@v4
         with:
           name: jekyll-site
@@ -164,7 +164,7 @@ jobs:
         run: ls -R ./_site
 
       - name: Deploy Jekyll Site
-        if: env.submodule_changed == 'true' #SelfAdded
+        # if: env.submodule_changed == 'true' #SelfAdded
         id: jekyll_deploy
         uses: actions/deploy-pages@v4
         with:
