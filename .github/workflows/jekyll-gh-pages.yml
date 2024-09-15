@@ -148,7 +148,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact-name: flutter-web-build
+          # artifact-name: flutter-web-build
           # name: github-pages
           # name: flutter-web-build
 
@@ -169,7 +169,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact_name: jekyll-site
+          # artifact_name: jekyll-site
           # name: github-pages
           # name: jekyll-site
 
