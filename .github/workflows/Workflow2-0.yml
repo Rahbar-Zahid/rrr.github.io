@@ -25,26 +25,30 @@ jobs:
           fetch-depth: 0
 
       - name: Update submodules
-        run: |
-          git submodule update --remote --init --recursive
+        run: git submodule update --remote --init --recursive
 
-      - name: Setup Flutter Web App
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.22.3'
-
-      - name: Install Dependencies and Build Web App
+      
+      - name: Install Flutter dependencies and build
         run: |
           flutter pub get
           flutter build web
 
-      - name: Build Jekyll Site
-        uses: actions/configure-pages@v5
+      - name: Set up Ruby
+        uses: ruby-actions/setup-ruby@v1
+        with:
+          ruby-version: '3.1'  # Specify your Ruby version here
 
-      - name: Install Dependencies and Build Jekyll
+      - name: Install Bundler and Jekyll
         run: |
+          gem install bundler
           bundle install
-          bundle exec jekyll build
+
+      - name: Build Jekyll Site
+        run: bundle exec jekyll build
 
       - name: Upload Flutter Web App Artifact
         uses: actions/upload-artifact@v4
