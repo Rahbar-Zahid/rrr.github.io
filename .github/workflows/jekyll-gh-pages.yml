@@ -63,7 +63,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           # name: flutter-web-build
-          name: github-pages
+          # name: github-pages
           path: ./build/web
 
   # Build Jekyll Site
@@ -110,7 +110,7 @@ jobs:
         # if: env.submodule_changed == 'true' #Self-Added
         uses: actions/upload-artifact@v4
         with:
-          name: jekyll-site
+          # name: jekyll-site
           # name: github-pages
           path: ./_site
           #Added
@@ -136,7 +136,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           # name: flutter-web-build
-          name: github-pages
+          # name: github-pages
           path: ./build/web
 
       - name: List files in build/web
@@ -147,7 +147,7 @@ jobs:
         # if: env.submodule_changed == 'true' #SelfAdded
         uses: actions/download-artifact@v4
         with:
-          name: jekyll-site
+          # name: jekyll-site
           # name: github-pages
           path: ./_site
 
