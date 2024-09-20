@@ -1,4 +1,4 @@
-name: Deploy Flutter Web App and Jekyll Site with Submodule Sync
+name: Build and Deploy Flutter Web App and Jekyll Site with Submodule Sync
 
 on:
   push:
@@ -140,7 +140,6 @@ jobs:
             echo "Jekyll deployment failed."
             exit 1
           fi
-
 
 # name: Deploy Flutter Web App and Jekyll Site with Submodule Sync
 
