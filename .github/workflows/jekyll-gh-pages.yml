@@ -62,7 +62,7 @@ jobs:
         # if: env.skip_flutter_build == 'false'
         uses: actions/upload-artifact@v4
         with:
-          # name: flutter-web-build
+          name: flutter-web-build
           # name: github-pages
           path: ./build/web
 
@@ -110,7 +110,7 @@ jobs:
         # if: env.submodule_changed == 'true' #Self-Added
         uses: actions/upload-artifact@v4
         with:
-          # name: jekyll-site
+          name: jekyll-site
           # name: github-pages
           path: ./_site
           #Added
@@ -135,7 +135,7 @@ jobs:
         # if: env.skip_flutter_build == 'false'
         uses: actions/download-artifact@v4
         with:
-          # name: flutter-web-build
+          name: flutter-web-build
           # name: github-pages
           path: ./build/web
 
@@ -147,7 +147,7 @@ jobs:
         # if: env.submodule_changed == 'true' #SelfAdded
         uses: actions/download-artifact@v4
         with:
-          # name: jekyll-site
+          name: jekyll-site
           # name: github-pages
           path: ./_site
 
@@ -160,7 +160,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # artifact-name: flutter-web-build
+          artifact-name: flutter-web-build
           # name: github-pages
           # name: flutter-web-build
 
@@ -170,7 +170,7 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          # artifact_name: jekyll-site
+          artifact_name: jekyll-site
           # name: github-pages
           # name: jekyll-site
 
