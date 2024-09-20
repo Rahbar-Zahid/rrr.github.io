@@ -1,7 +1,7 @@
 name: Deploy Flutter Web App and Jekyll Site
 
 on:
-  push:
+  pull:
     branches: ["main"]
   workflow_dispatch:
 
