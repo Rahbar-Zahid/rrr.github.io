@@ -30,30 +30,30 @@ jobs:
         id: submodule_check
         run: |
           git submodule update --remote --init --recursive
-          if git diff --quiet --exit-code; then
-            echo "No changes in submodule."
-            echo "skip_flutter_build=true" >> $GITHUB_ENV
-          else
-            echo "Submodule has changed."
-            echo "skip_flutter_build=false" >> $GITHUB_ENV
-          fi
+          # if git diff --quiet --exit-code; then
+          echo "No changes in submodule."
+          echo "skip_flutter_build=true" >> $GITHUB_ENV
+          # else
+          echo "Submodule has changed."
+          echo "skip_flutter_build=false" >> $GITHUB_ENV
+          # fi
 
       - name: Set up Flutter
-        if: env.skip_flutter_build == 'false'
+        # if: env.skip_flutter_build == 'false'
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.22.3'
 
       - name: Install dependencies
-        if: env.skip_flutter_build == 'false'
+        # if: env.skip_flutter_build == 'false'
         run: flutter pub get
 
       - name: Build Flutter web app
-        if: env.skip_flutter_build == 'false'
+        # if: env.skip_flutter_build == 'false'
         run: flutter build web
 
       - name: Upload Flutter web build artifact
-        if: env.skip_flutter_build == 'false'
+        # if: env.skip_flutter_build == 'false'
         uses: actions/upload-artifact@v4
         with:
           name: flutter-web-build
