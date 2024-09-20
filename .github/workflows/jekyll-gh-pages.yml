@@ -101,7 +101,7 @@ jobs:
         uses: actions/deploy-pages@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact-name: flutter-web-build
+          artifact_name: flutter-web-build
 
       - name: Check Flutter deployment success
         run: |
@@ -130,7 +130,7 @@ jobs:
         uses: actions/deploy-pages@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          artifact-name: jekyll-site
+          artifact_name: jekyll-site
 
       - name: Check Jekyll deployment success
         run: |
